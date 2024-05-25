@@ -24,9 +24,9 @@ public class Main {
 
     public static void checkYear(int year) {
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-            System.out.println(year + " год - високосный год");
+            System.out.println(year + " - високосный год");
         } else {
-            System.out.println(year + " Год - невисокосный год");
+            System.out.println(year + " - невисокосный год");
 
         }
     }
@@ -37,7 +37,7 @@ public class Main {
         } else {
             int currentYear = LocalDate.now().getYear();
             var type = osType == 1 ? "Android" : "iOS";
-            var appType = year < currentYear ? "облегченную" : "";
+            var appType = year <= currentYear ? "облегченную" : "";
             System.out.println("Установите " + appType + " версию для системы " + type);
 
         }
