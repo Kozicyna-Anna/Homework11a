@@ -32,6 +32,9 @@ public class Main {
     }
 
     public static void printDeviceVersion(int osType, int year) {
+        if (osType < 0){
+            System.out.println("ОС не может быть меньше 0");
+        }
         if (year < 0) {
             System.out.println("Год не может быть меньше 0!");
         } else {
