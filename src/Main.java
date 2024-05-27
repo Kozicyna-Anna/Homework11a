@@ -9,9 +9,9 @@ public class Main {
         checkYear(2028);
         checkYear(2017);
 
-        printDeviceVersion(1, 2020);
-        printDeviceVersion(0, 2024);
-        printDeviceVersion(1, 2024);
+        int osType = 0;
+        int year = 2023;
+        printDeviceVersion(osType, year);
 
         int days = calculateDistance(157);
         if (days > 0) {
@@ -32,17 +32,21 @@ public class Main {
     }
 
     public static void printDeviceVersion(int osType, int year) {
-        if (osType < 0){
-            System.out.println("ОС не может быть меньше 0");
+        if (year == 0 || year == 1) {
+        if (osType < LocalDate.now().getYear() && year == 1) {
+           System.out.println("Установите облегченную версию приложения для Android по ссылке");
         }
-        if (year < 0) {
-            System.out.println("Год не может быть меньше 0!");
-        } else {
-            int currentYear = LocalDate.now().getYear();
-            var type = osType == 1 ? "Android" : "iOS";
-            var appType = year <= currentYear ? "облегченную" : "";
-            System.out.println("Установите " + appType + " версию для системы " + type);
-
+        if (osType == LocalDate.now().getYear() && year == 1 ) {
+            System.out.println("Установите версию иприложения для Android по ссылке");
+        }
+            if (osType < LocalDate.now().getYear() && year == 0) {
+                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            }
+            if (osType == LocalDate.now().getYear() && year == 0) {
+                System.out.println("Установите версию приложения для iOS по ссылке");
+            }
+        } else if (year != 0 || year != 1) {
+            throw new RuntimeException("Ошибка ввода. Такой операционной системы нет.");
         }
     }
 
