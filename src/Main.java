@@ -9,9 +9,9 @@ public class Main {
         checkYear(2028);
         checkYear(2017);
 
-        int osType = 0;
-        int year = 2023;
-        printDeviceVersion(osType, year);
+
+        int currentYear = LocalDate.now().getYear();
+
 
         int days = calculateDistance(157);
         if (days > 0) {
@@ -29,42 +29,49 @@ public class Main {
             System.out.println(year + " - невисокосный год");
 
         }
-    }
 
-    public static void printDeviceVersion(int osType, int year) {
-        if (year == 0 || year == 1) {
-        if (osType < LocalDate.now().getYear() && year == 1) {
-           System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        }
-        if (osType == LocalDate.now().getYear() && year == 1 ) {
-            System.out.println("Установите версию иприложения для Android по ссылке");
-        }
-            if (osType < LocalDate.now().getYear() && year == 0) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        public static void currentYear ( int osType, int year){
+
+            if (osType != 0 && osType != 1) {
+                System.out.println("Ошибка: неккоректный тип операционной системы.");
+                return;
+                if (osType == 0) {
+                    if (year < currentYear) {
+                        System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                    } else {
+                        System.out.println("Установите версию приложения для Android по ссылке");
+                    }
+                } else if (osType == 1) {
+                    if (year < currentYear) {
+                        System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+                    } else {
+                        System.out.println("Установите версию приложения для iOS по ссылке");
+
+                    }
+                }
+
+                public static int calculateDistance ( int distance){
+                    if (distance > 100) {
+                        return -1;
+                    }
+                    int days = 1;
+                    if (distance > 20) {
+                        days++;
+                    }
+                    if (distance > 60) {
+                        days++;
+                    }
+                    return days;
+                }
             }
-            if (osType == LocalDate.now().getYear() && year == 0) {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
-        } else if (year != 0 || year != 1) {
-            throw new RuntimeException("Ошибка ввода. Такой операционной системы нет.");
         }
-    }
-
-    public static int calculateDistance(int distance) {
-        if (distance > 100) {
-            return -1;
-        }
-        int days = 1;
-        if (distance > 20) {
-            days++;
-        }
-        if (distance > 60) {
-            days++;
-        }
-        return days;
-
     }
 }
+
+
+
+
+
 
 
 
