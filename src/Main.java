@@ -10,8 +10,9 @@ public class Main {
         checkYear(2017);
 
 
-        int currentYear = LocalDate.now().getYear();
-
+        currentYear(1, 2020);
+        currentYear(0, 2024);
+        currentYear(1, 2024);
 
         int days = calculateDistance(157);
         if (days > 0) {
@@ -29,13 +30,14 @@ public class Main {
             System.out.println(year + " - невисокосный год");
 
         }
+    }
+        public static void currentYear ( int osType, int year) {
 
-        public static void currentYear ( int osType, int year){
-
+            int currentYear = LocalDate.now().getYear();
             if (osType != 0 && osType != 1) {
                 System.out.println("Ошибка: неккоректный тип операционной системы.");
                 return;
-                if (osType == 0) {
+             if (osType == 0) {
                     if (year < currentYear) {
                         System.out.println("Установите облегченную версию приложения для Android по ссылке");
                     } else {
@@ -49,8 +51,8 @@ public class Main {
 
                     }
                 }
-
-                public static int calculateDistance ( int distance){
+            }
+        }        public static int calculateDistance ( int distance){
                     if (distance > 100) {
                         return -1;
                     }
@@ -61,12 +63,13 @@ public class Main {
                     if (distance > 60) {
                         days++;
                     }
-                    return days;
-                }
-            }
-        }
+                        return days;
+                    }
     }
-}
+
+
+
+
 
 
 
