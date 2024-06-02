@@ -31,41 +31,45 @@ public class Main {
 
         }
     }
-        public static void currentYear ( int osType, int year) {
 
-            int currentYear = LocalDate.now().getYear();
-            if (osType != 0 && osType != 1) {
-                System.out.println("Ошибка: неккоректный тип операционной системы.");
-                return;
-             if (osType == 0) {
-                    if (year < currentYear) {
-                        System.out.println("Установите облегченную версию приложения для Android по ссылке");
-                    } else {
-                        System.out.println("Установите версию приложения для Android по ссылке");
-                    }
-                } else if (osType == 1) {
-                    if (year < currentYear) {
-                        System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-                    } else {
-                        System.out.println("Установите версию приложения для iOS по ссылке");
+    public static void currentYear(int osType, int year) {
 
-                    }
+        int currentYear = LocalDate.now().getYear();
+        if (osType != 0 && osType != 1) {
+            System.out.println("Ошибка: неккоректный тип операционной системы.");
+            return;
+            if (osType == 0) {
+                if (year < currentYear) {
+                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                } else {
+                    System.out.println("Установите версию приложения для Android по ссылке");
+                }
+            } else if (osType == 1) {
+                if (year < currentYear) {
+                    System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+                } else {
+                    System.out.println("Установите версию приложения для iOS по ссылке");
+
                 }
             }
-        }        public static int calculateDistance ( int distance){
-                    if (distance > 100) {
-                        return -1;
-                    }
-                    int days = 1;
-                    if (distance > 20) {
-                        days++;
-                    }
-                    if (distance > 60) {
-                        days++;
-                    }
-                        return days;
-                    }
+        }
     }
+
+    public static int calculateDistance(int distance) {
+        if (distance > 100) {
+            return -1;
+        }
+        int days = 1;
+        if (distance > 20) {
+            days++;
+        }
+        if (distance > 60) {
+            days++;
+        }
+        return days;
+    }
+}
+
 
 
 
